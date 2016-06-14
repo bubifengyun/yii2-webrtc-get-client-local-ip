@@ -10,6 +10,12 @@
             "email": "bubifengyun@sina.com"
         }
     ],
+    "repositories":[
+        {
+            "type": "git",
+            "url": "https://github.com/bubifengyun/yii2-webrtc-get-client-local-ip.git"
+        }
+    ],
     "require": {
         "yiisoft/yii2": "*"
     },
