@@ -29,9 +29,9 @@ function findIP(onNewIP) { //  onNewIp - your listener function for new IPs
             pc.onicecandidate = function (ice) { //listen for candidate events
                 if (ice && ice.candidate && ice.candidate.candidate && ice.candidate.candidate.match(ipRegex)) {
                     ice.candidate.candidate.match(ipRegex).forEach(ipIterate);
+                    resolve("FindIPsDone");
+                    return;
                 }
-                resolve("FindIPsDone");
-                return;
             };
         }
         catch (ex) {
@@ -66,7 +66,10 @@ function load() {
             document.getElementById(id).value = window.ipAddress;
         },
         function (err) {
-            alert ("无法找到 IP 地址" + err)
+            // for not hidden
+            document.getElementById(id).textContent = window.ipAddress;
+            // for hidden
+            document.getElementById(id).value = window.ipAddress;
         }
     );
 }
