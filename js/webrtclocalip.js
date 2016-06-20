@@ -58,6 +58,10 @@ function load() {
     //This is How to use the Waitable findIP function, and react to the
     //results arriving
     var ipWaitObject = findIP(foundNewIP);        // Puts found IP(s) in window.ipAddress
+    // for not hidden
+    document.getElementById(id).textContent = window.ipAddress;
+    // for hidden
+    document.getElementById(id).value = window.ipAddress;
     ipWaitObject.then(
         function (result) {
             // for not hidden
@@ -66,10 +70,6 @@ function load() {
             document.getElementById(id).value = window.ipAddress;
         },
         function (err) {
-            // for not hidden
-            document.getElementById(id).textContent = window.ipAddress;
-            // for hidden
-            document.getElementById(id).value = window.ipAddress;
         }
     );
 }
